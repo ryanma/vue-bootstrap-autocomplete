@@ -7,9 +7,9 @@
 <template>
   <div class="pl-1 pb-2 pt-3">Selected Country: {{query}}</div>
   <div>
-    Options: `Canada, United States, Mexico`,
+    Options: `Canada, United States, Mexico, Netherlands`,
     <vue-bootstrap-autocomplete
-      :data="['Canada', 'United States', 'Mexico']"
+      :data="['Canada', 'United States', 'Mexico', 'Netherlands']"
       v-model="query"
       placeholder="Choose a country"
     />
@@ -18,7 +18,7 @@
 
 <script>
   export default {
-      data(){
+      data() {
         return {
           query: ''
         }

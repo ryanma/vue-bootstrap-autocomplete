@@ -2,11 +2,11 @@
 
 ## Installation
 ```js
+// npm
+npm i vue-bootstrap-autocomplete
+
 // yarn
 yarn add vue-bootstrap-autocomplete
-
-// npm
-npm install vue-bootstrap-autocomplete --save
 ```
 
 ## Registration
@@ -36,7 +36,7 @@ The only required props are a `v-model` and a `data` array.
 ```html
 <vue-bootstrap-autocomplete
   v-model="query"
-  :data="['Canada', 'United States', 'Mexico']"
+  :data="['Canada', 'United States', 'Mexico', 'Netherlands']"
 />
 ```
 

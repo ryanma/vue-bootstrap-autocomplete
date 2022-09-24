@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: Vue Typeahead Bootstrap
-tagline: A simple typeahead for Vue 2 using Bootstrap 4
+heroText: Vue Bootstrap Autocomplete
+tagline: A simple autocomplete component for Vue 2 using Bootstrap 4
 actionText: Get Started
 features:
 - title: bootstrap-vue compatible
