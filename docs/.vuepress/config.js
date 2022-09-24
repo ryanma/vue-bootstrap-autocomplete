@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/vue-bootstrap-autocomplete-docs/',
+  base: '/vue-bootstrap-autocomplete/',
   chainWebpack(config) {
     for (const lang of ["sass", "scss"]) {
       for (const name of ["modules", "normal"]) {
