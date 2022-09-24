@@ -1,3 +1,9 @@
+## 2.13.0 - 22 Sep 2022
+- Update npm dependencies and replace node-sass by dart-sass
+- Update/vuepress dart sass
+- Emit blur when underlying input blurs, unless the focus changed to a list item.
+- Emit focus event when input receives focus
+
 ## 2.12.0 - 26 Aug 2021
 - Revert localization changes
 - Update CI build targets
