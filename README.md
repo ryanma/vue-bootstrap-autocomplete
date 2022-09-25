@@ -1,7 +1,7 @@
 ![Nodejs workflow status](https://github.com/drikusroor/vue-bootstrap-autocomplete/actions/workflows/nodejs.yml/badge.svg) [![npm version](https://badge.fury.io/js/@vue-bootstrap-components%2Fvue-bootstrap-autocomplete.svg)](https://badge.fury.io/js/@vue-bootstrap-components%2Fvue-bootstrap-autocomplete)
 
 # Contributors and PRs welcome
-Hello everyone. `vue-bootstrap-autocomplete` is a continuation of where [vue-typeahead-boostrap](https://github.com/mattzollinhofer/vue-typeahead-bootstrap) left off. To move this project forward again, every contribution is welcome. Fixing bugs, adding features, improving documentation, every bit helps so don't be afraid to open a pull request. I won't bite, I promise.
+Hello everyone. `vue-bootstrap-autocomplete` is a continuation of where [vue-typeahead-bootstrap](https://github.com/mattzollinhofer/vue-typeahead-bootstrap) left off. To move this project forward again, every contribution is welcome. Fixing bugs, adding features, improving documentation, every bit helps so don't be afraid to open a pull request. I won't bite, I promise.
 
 # vue-bootstrap-autocomplete
 
@@ -18,9 +18,9 @@ Here are some live examples, [give them a try here.](https://drikusroor.github.i
 [Docs are here.](https://drikusroor.github.io/vue-bootstrap-autocomplete-docs/)
 
 ## Contributing
-Please note that active development is done on the `main` branch. PR's are welcome! Here's the basic steps to get going.
+Please note that active development is done on the `main` branch. PR's are welcome! Here are the basic steps to get going.
 
-Here's the steps to getting the project to work locally:
+Here are the steps to getting the project to work locally:
 
 1. Clone the repo: `git clone git@github.com:drikusroor/vue-bootstrap-autocomplete.git`
 2. `npm ci`
@@ -41,7 +41,7 @@ Replace old by new:
 | `VueBootstrapTypeahead` | `VueBootstrapAutocomplete` |
 | `VueTypeaheadBootstrap` | `VueBootstrapAutocomplete` |
 
-The original projects lost its maintainers and we picked it up to keep it moving. 
+The original projects lost its maintainers, and we picked it up to keep it moving. 
 
 More info here if you're interested:
 * [vue-bootstrap-typeahead](https://github.com/alexurquhart/vue-bootstrap-typeahead/issues/60)
