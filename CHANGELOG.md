@@ -1,3 +1,7 @@
+## 2.14.0 - 25 Sep 2022
+- Update docs with event examples
+- Emit paste event from input
+
 ## 2.13.0 - 22 Sep 2022
 - Update npm dependencies and replace node-sass by dart-sass
 - Update/vuepress dart sass
