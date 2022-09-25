@@ -33,6 +33,7 @@
         @input="handleInput($event.target.value)"
         @keydown.esc="handleEsc($event.target.value)"
         @keyup="$emit('keyup', $event)"
+        @paste="$emit('paste', $event)"
       />
       <div v-if="$slots.append || append" class="input-group-append">
         <slot name="append">
@@ -171,7 +172,7 @@ export default {
     highlightClass: String
   },
 
-  emits: ['hit', 'input', 'keyup', 'focus', 'blur'],
+  emits: ['hit', 'input', 'keyup', 'focus', 'blur', 'paste'],
 
   computed: {
     id() {
