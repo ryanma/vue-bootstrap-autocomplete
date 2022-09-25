@@ -193,5 +193,11 @@ describe('VueBootstrapAutocomplete', () => {
       await input.trigger('focus')
       expect(wrapper.emitted().focus).toBeTruthy()
     })
+
+    it('Emits a paste event when the underlying input field receives a paste event', async () => {
+      let input = wrapper.find('input')
+      await input.trigger('paste')
+      expect(wrapper.emitted().paste).toBeTruthy()
+    });
   })
 })

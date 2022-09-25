@@ -1,11 +1,12 @@
 # Examples
 
-## Basic 
+## Basic
+
 <HomePageDemo/>
 
 ```vue
 <template>
-  <div class="pl-1 pb-2 pt-3">Selected Country: {{query}}</div>
+  <div class="pl-1 pb-2 pt-3">Selected Country: {{ query }}</div>
   <div>
     Options: `Canada, United States, Mexico, Netherlands`,
     <vue-bootstrap-autocomplete
@@ -17,70 +18,84 @@
 </template>
 
 <script>
-  export default {
-      data() {
-        return {
-          query: ''
-        }
-      }
-    }
+export default {
+  data() {
+    return {
+      query: "",
+    };
+  },
+};
 </script>
 ```
 
 ## API Example
+
 <APIExample/>
 
 ```vue
 <template>
   <div>
     <div class="pl-1 pb-2 pt-3">
-      Selected user: <span v-if="selecteduser">{{selecteduser.login}}</span>
+      Selected user: <span v-if="selecteduser">{{ selecteduser.login }}</span>
     </div>
     <vue-bootstrap-autocomplete
       class="mb-4"
       v-model="query"
       :ieCloseFix="false"
       :data="users"
-      :serializer="item => item.login"
+      :serializer="(item) => item.login"
       @hit="selecteduser = $event"
-      :disabledValues="(selecteduser ? [selecteduser.login] : [])"
+      :disabledValues="selecteduser ? [selecteduser.login] : []"
       placeholder="Search Github Users"
       @input="lookupUser"
-      #use a different background color for even or odd user ids
-      :background-variant-resolver="(user) => ((user.id % 2) == 0) ? 'light':'dark'"
+      #use
+      a
+      different
+      background
+      color
+      for
+      even
+      or
+      odd
+      user
+      ids
+      :background-variant-resolver="
+        (user) => (user.id % 2 == 0 ? 'light' : 'dark')
+      "
     />
   </div>
 </template>
 
 <script>
-  import {debounce} from 'lodash';
+import { debounce } from "lodash";
 
-  export default {
-  data(){
+export default {
+  data() {
     return {
-      query: '',
+      query: "",
       selecteduser: null,
-      users: []
-    }
+      users: [],
+    };
   },
 
   methods: {
-    lookupUser: debounce(function(){
+    lookupUser: debounce(function () {
       // in practice this action should be debounced
       fetch(`https://api.github.com/search/users?q=${this.query}`)
-        .then(response => {
+        .then((response) => {
           return response.json();
         })
-        .then(data => {
+        .then((data) => {
           this.users = data.items;
-        })
-    }, 500)
-  }  
-}
+        });
+    }, 500),
+  },
+};
 </script>
 ```
 
 ## Prepend/Append
+
 <PendingAppendingExample/>
 
 ```vue
@@ -91,71 +106,70 @@
       v-model="query"
       :data="users"
       @keydown.enter="search"
-      :serializer="item => item.login"
+      :serializer="(item) => item.login"
       placeholder="Search GitHub Users"
       prepend="Username:"
       @input="searchUsers"
       @keyup.enter="handleEnter"
     >
       <template slot="append">
-        <button  class="btn btn-primary">
-          Search
-        </button>
+        <button class="btn btn-primary">Search</button>
       </template>
     </VueBootstrapAutocomplete>
   </div>
 </template>
 
 <script>
-  import {debounce} from 'lodash';
-  export default {
-    data(){
-      return {
-        query: '',
-        userRepositories: {},
-        users: []
-      }
-    },
+import { debounce } from "lodash";
+export default {
+  data() {
+    return {
+      query: "",
+      userRepositories: {},
+      users: [],
+    };
+  },
 
-    methods: {
-      handleEnter: function(event){
-        alert('keyup.enter pressed!');
-      },
-      searchUsers: debounce(function() {
-        fetch(`https://api.github.com/search/users?q=${this.query}`)
-          .then(response => {
-            return response.json();
-          })
-          .then(data => {
-            this.users = data.items;
-          })
-      }, 500)
-    }
-  }
+  methods: {
+    handleEnter: function (event) {
+      alert("keyup.enter pressed!");
+    },
+    searchUsers: debounce(function () {
+      fetch(`https://api.github.com/search/users?q=${this.query}`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          this.users = data.items;
+        });
+    }, 500),
+  },
+};
 </script>
 ```
 
 ## Custom Suggestion Slot
+
 <CustomSuggestion/>
 
 ```vue
 <template>
   <div>
     <div class="pl-1 pb-2 pt-3">
-      Selected user: <span v-if="selecteduser">{{selecteduser.login}}</span>
+      Selected user: <span v-if="selecteduser">{{ selecteduser.login }}</span>
     </div>
     <vue-bootstrap-autocomplete
       class="mb-4"
       v-model="query"
       :data="users"
-      :serializer="item => item.login"
-      :screen-reader-text-serializer="item => `Github user ${item.login}`"
+      :serializer="(item) => item.login"
+      :screen-reader-text-serializer="(item) => `Github user ${item.login}`"
       highlightClass="special-highlight-class"
       @hit="selecteduser = $event"
       :minMatchingChars="3"
       placeholder="Search Github Users"
       inputClass="special-input-class"
-      :disabledValues="(selecteduser ? [selecteduser.login] : [])"
+      :disabledValues="selecteduser ? [selecteduser.login] : []"
       @input="lookupUser"
     >
       <template slot="suggestion" slot-scope="{ data, htmlText }">
@@ -163,7 +177,8 @@
           <img
             class="rounded-circle"
             :src="data.avatar_url"
-            style="width: 40px; height: 40px;" />
+            style="width: 40px; height: 40px;"
+          />
 
           <!-- Note: the v-html binding is used, as htmlText contains
                the suggestion text highlighted with <strong> tags -->
@@ -175,43 +190,97 @@
   </div>
 </template>
 
-
 <script>
-  import {debounce} from 'lodash';
-  export default {
-    data(){
-      return {
-        query: '',
-        selecteduser: null,
-        users: []
-      }
-    },
+import { debounce } from "lodash";
+export default {
+  data() {
+    return {
+      query: "",
+      selecteduser: null,
+      users: [],
+    };
+  },
 
-    methods: {
-      lookupUser: debounce(function(){
-        // in practice this action should be debounced
-        fetch(`https://api.github.com/search/users?q=${this.query}`)
-          .then(response => {
-            return response.json();
-          })
-          .then(data => {
-            this.users = data.items;
-          })
-      }, 500)
-    }
-  }
+  methods: {
+    lookupUser: debounce(function () {
+      // in practice this action should be debounced
+      fetch(`https://api.github.com/search/users?q=${this.query}`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          this.users = data.items;
+        });
+    }, 500),
+  },
+};
 </script>
 
 <style lang="scss">
-  @import 'bootstrap/scss/bootstrap.scss';
+@import "bootstrap/scss/bootstrap.scss";
 
-  .special-input-class{
-    background-color: black !important;
-    color: white !important;
-  }
-  .special-highlight-class{
-    font-weight: 900;
-    color: #585656;
-  }
+.special-input-class {
+  background-color: black !important;
+  color: white !important;
+}
+.special-highlight-class {
+  font-weight: 900;
+  color: #585656;
+}
 </style>
+```
+
+## Events
+
+<EventsDemo/>
+
+```vue
+<template>
+  <div>
+    <div class="pl-1 pb-2 pt-3">Selected Country: {{ query }}</div>
+    <vue-bootstrap-autocomplete
+      :data="[
+        'Canada',
+        'United Kingdom',
+        'United States',
+        'Mexico',
+        'Netherlands',
+      ]"
+      v-model="query"
+      showOnFocus
+      placeholder="Choose a country"
+      @blur="() => onEvent('blur')"
+      @focus="() => onEvent('focus')"
+      @hit="() => onEvent('hit')"
+      @input="() => onEvent('input')"
+      @keyup="() => onEvent('keyup')"
+      @paste="() => onEvent('paste')"
+    />
+  </div>
+</template>
+
+<script>
+import "bootstrap-vue/dist/bootstrap-vue.css";
+import VueBootstrapAutocomplete from "../../../src/components/VueBootstrapAutocomplete";
+
+export default {
+  name: "EventsDemo",
+  components: { VueBootstrapAutocomplete },
+  data() {
+    return {
+      query: "",
+    };
+  },
+  methods: {
+    onEvent(event) {
+      this.$bvToast.toast(event, {
+        title: "Event emitted",
+        autoHideDelay: 5000,
+        variant: "info",
+        solid: true,
+      });
+    },
+  },
+};
+</script>
 ```

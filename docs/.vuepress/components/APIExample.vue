@@ -26,7 +26,7 @@
   export default {
     name: "APIExample",
     components: {VueBootstrapAutocomplete},
-    data(){
+    data() {
       return {
         query: '',
         selecteduser: null,
@@ -35,7 +35,7 @@
     },
 
     methods: {
-      lookupUser: debounce(function(){
+      lookupUser: debounce(function() {
         // in practice this action should be debounced
         fetch(`https://api.github.com/search/users?q=${this.query}`)
           .then(response => {
