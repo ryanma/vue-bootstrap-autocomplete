@@ -280,11 +280,11 @@ export default {
       }
 
       let reversedList = reverse(clone(this.matchedItems))
-      let currerntReversedIndex =
+      let currentReversedIndex =
         this.matchedItems.length - 1 - this.activeListItem
       let nextReverseIndex = this.findIndexForNextActiveItem(
         reversedList,
-        currerntReversedIndex
+        currentReversedIndex
       )
 
       this.activeListItem = this.matchedItems.length - 1 - nextReverseIndex
